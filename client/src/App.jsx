@@ -1,11 +1,11 @@
-import Users from './components/Users/Users';
+import Header from './components/Header/Header';
 import { GlobalStyles } from './styles/GlobalStyles';
 
 const App = () => {
 	return (
 		<>
 			<GlobalStyles />
-			<Users />
+			<Header />
 		</>
 	);
 };
