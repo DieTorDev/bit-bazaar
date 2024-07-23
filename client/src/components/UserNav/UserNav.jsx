@@ -1,10 +1,12 @@
+import { StyledUserList } from './user-nav.styles';
+
 const UserNav = () => {
 	return (
 		<nav>
-			<ul>
+			<StyledUserList>
 				<li>Sign Up</li>
 				<li>Sign In</li>
-			</ul>
+			</StyledUserList>
 		</nav>
 	);
 };
