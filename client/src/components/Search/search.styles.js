@@ -53,6 +53,8 @@ const StyledFilter = styled.p`
 	padding-inline: 15px;
 	padding-block: 5px;
 	cursor: pointer;
+	display: flex;
+	gap: 4px;
 
 	&:hover {
 		background-color: #333333;
@@ -60,10 +62,15 @@ const StyledFilter = styled.p`
 	}
 `;
 
+const StyledFilterIcon = styled.img`
+	width: 12px;
+`;
+
 export {
 	StyledSearchContainer,
 	StyledSearch,
 	StyledSearchInput,
 	StyledFilterContainer,
-	StyledFilter
+	StyledFilter,
+	StyledFilterIcon
 };

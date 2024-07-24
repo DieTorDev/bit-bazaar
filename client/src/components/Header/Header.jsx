@@ -6,14 +6,19 @@ import {
 	StyledTitle
 } from './header.styles';
 
-const Header = () => {
+const Header = ({ mobileMenu, setMobileMenu }) => {
 	return (
 		<StyledHeader>
 			<StyledLogoContainer>
 				<StyledLogo>L</StyledLogo>
 				<StyledTitle>Ludora</StyledTitle>
 			</StyledLogoContainer>
-			<StyledBurger src='/images/menu-icon.svg' alt='' />
+			<StyledBurger
+				$menu={mobileMenu}
+				onClick={() => setMobileMenu(!mobileMenu)}
+				src='/images/menu-icon.svg'
+				alt='menu icon'
+			/>
 		</StyledHeader>
 	);
 };

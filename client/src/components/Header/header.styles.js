@@ -36,6 +36,8 @@ const StyledTitle = styled.h4`
 
 const StyledBurger = styled.img`
 	width: 32px;
+	transform: ${({ $menu }) => ($menu ? `rotate(-90deg)` : `rotate(0deg)`)};
+	transition: ease-in-out 0.2s;
 `;
 
 export {
