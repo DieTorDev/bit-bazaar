@@ -8,6 +8,7 @@ const StyledMenu = styled.nav`
 	top: 100px;
 	transform: ${({ $menu }) => ($menu ? `translateX(0%)` : `translateX(-100%)`)};
 	transition: ease-in-out 0.2s;
+	z-index: 999;
 `;
 
 const StyledList = styled.ul`

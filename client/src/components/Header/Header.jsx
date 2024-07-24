@@ -16,7 +16,7 @@ const Header = ({ mobileMenu, setMobileMenu }) => {
 			<StyledBurger
 				$menu={mobileMenu}
 				onClick={() => setMobileMenu(!mobileMenu)}
-				src='/images/menu-icon.svg'
+				src='/images/icons/menu-icon.svg'
 				alt='menu icon'
 			/>
 		</StyledHeader>
