@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
-const tasksRoutes = require('./routes/tasks.routes');
+const cookieParser = require('cookie-parser');
+const authRoutes = require('./routes/auth.routes');
 
 require('dotenv').config();
 
@@ -13,14 +14,16 @@ require('dotenv').config();
 const corsOptions = {
   origin: 'http://localhost:5173', // Dominios autorizados
   methods: '*', // Métodos permitidos
-  optionsSuccessStatus: 204
+  optionsSuccessStatus: 204,
+  credentials: true
 };
 
 app.use(cors(corsOptions));
 app.use(express.json());
+app.use(cookieParser());
 
 // Uso de rutas
-app.use('/api/tasks', tasksRoutes);
+app.use('/auth', authRoutes);
 
 const startSever = async () => {
   try {

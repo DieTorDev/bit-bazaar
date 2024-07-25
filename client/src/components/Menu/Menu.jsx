@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
 	StyledButton1,
 	StyledButton2,
@@ -13,6 +13,8 @@ import { useState } from 'react';
 
 const Menu = ({ mobileMenu, setMobileMenu }) => {
 	const [currentPage, setCurrentPage] = useState('Home');
+
+	const navigate = useNavigate();
 
 	return (
 		<StyledMenu $menu={mobileMenu}>
@@ -38,8 +40,20 @@ const Menu = ({ mobileMenu, setMobileMenu }) => {
 			</StyledList>
 
 			<StyledButtonContainer>
-				<StyledButton1>Sign Up</StyledButton1>
-				<StyledButton2>Sign In</StyledButton2>
+				<StyledButton1
+					onClick={() =>
+						handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-up')
+					}
+				>
+					Sign Up
+				</StyledButton1>
+				<StyledButton2
+					onClick={() =>
+						handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-in')
+					}
+				>
+					Sign In
+				</StyledButton2>
 			</StyledButtonContainer>
 		</StyledMenu>
 	);
@@ -48,6 +62,12 @@ const Menu = ({ mobileMenu, setMobileMenu }) => {
 const handleClick = (setMobileMenu, setCurrentPage, page) => {
 	setMobileMenu(false);
 	setCurrentPage(page);
+};
+
+const handleSignUp = (navigate, setMobileMenu, setCurrentPage, path) => {
+	setMobileMenu(false);
+	setCurrentPage(null);
+	navigate(path);
 };
 
 export default Menu;

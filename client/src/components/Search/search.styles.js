@@ -14,7 +14,7 @@ const StyledSearch = styled.div`
 	width: 240px;
 	height: 32px;
 	padding: 4px;
-	background-color: #f8f8f8;
+	background-color: #f0f0f0;
 	gap: 6px;
 	border-radius: 24px;
 `;
@@ -44,7 +44,7 @@ const StyledFilterContainer = styled.div`
 `;
 
 const StyledFilter = styled.p`
-	background-color: #f8f8f8;
+	background-color: #f0f0f0;
 	color: #333333;
 	border-radius: 12px;
 	font-size: 16px;
