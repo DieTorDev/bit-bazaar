@@ -3,12 +3,15 @@ import styled from 'styled-components';
 const StyledMenu = styled.nav`
 	position: absolute;
 	width: 100%;
-	height: 80%;
+	height: 88%;
 	background-color: white;
 	top: 100px;
 	transform: ${({ $menu }) => ($menu ? `translateX(0%)` : `translateX(-100%)`)};
 	transition: ease-in-out 0.2s;
 	z-index: 999;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 `;
 
 const StyledList = styled.ul`

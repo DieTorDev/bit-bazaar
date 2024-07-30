@@ -9,10 +9,13 @@ import {
 	StyledMenu
 } from './menu.styles';
 import { MENU_DATA } from '../../constants/menu';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { UserContext } from '../../contexts/userContext';
+import UserMenu from '../UserMenu/UserMenu';
 
 const Menu = ({ mobileMenu, setMobileMenu }) => {
 	const [currentPage, setCurrentPage] = useState('Home');
+	const { userData } = useContext(UserContext);
 
 	const navigate = useNavigate();
 
@@ -39,22 +42,25 @@ const Menu = ({ mobileMenu, setMobileMenu }) => {
 				))}
 			</StyledList>
 
-			<StyledButtonContainer>
-				<StyledButton1
-					onClick={() =>
-						handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-up')
-					}
-				>
-					Sign Up
-				</StyledButton1>
-				<StyledButton2
-					onClick={() =>
-						handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-in')
-					}
-				>
-					Sign In
-				</StyledButton2>
-			</StyledButtonContainer>
+			{!userData && (
+				<StyledButtonContainer>
+					<StyledButton1
+						onClick={() =>
+							handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-up')
+						}
+					>
+						Sign Up
+					</StyledButton1>
+					<StyledButton2
+						onClick={() =>
+							handleSignUp(navigate, setMobileMenu, setCurrentPage, '/sign-in')
+						}
+					>
+						Sign In
+					</StyledButton2>
+				</StyledButtonContainer>
+			)}
+			{userData && <UserMenu setMobileMenu={setMobileMenu} />}
 		</StyledMenu>
 	);
 };

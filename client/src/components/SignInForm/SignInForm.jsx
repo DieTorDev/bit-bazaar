@@ -6,11 +6,14 @@ import {
 	StyledSumbit
 } from '../SignUpForm/sign-up-form.styles';
 import { UserContext } from '../../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 
 const SignInForm = () => {
 	const { setUserData } = useContext(UserContext);
+	const navigate = useNavigate();
+
 	return (
-		<StyledForm onSubmit={e => handleSubmit(e, setUserData)}>
+		<StyledForm onSubmit={e => handleSubmit(e, setUserData, navigate)}>
 			<StyledInput type='text' placeholder='Email' name='email' />
 			<StyledInput type='password' placeholder='Password' name='password' />
 
@@ -19,7 +22,7 @@ const SignInForm = () => {
 	);
 };
 
-const handleSubmit = async (event, setUserData) => {
+const handleSubmit = async (event, setUserData, navigate) => {
 	event.preventDefault();
 
 	const { email, password } = event.target;
@@ -30,6 +33,8 @@ const handleSubmit = async (event, setUserData) => {
 	};
 
 	await loginRequest(loginData, setUserData);
+
+	navigate('/');
 };
 
 export default SignInForm;
